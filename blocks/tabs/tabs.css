@@ -56,3 +56,205 @@
 .tabs .tabs-panel[aria-hidden='true'] {
   display: none;
 }
+
+
+.tabs {
+  background: #000;
+  width: 100vw;
+  min-height: 100vh;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Remove any default top margin from parent sections */
+main > .section, .tabs-wrapper {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+/* Tabs Bar */
+.tabs .tabs-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 40px;
+  max-width: 620px;
+  width: 100%;
+  background: transparent;
+  border-bottom: 1.5px solid #222;
+  margin: 0 auto 24px auto;
+  padding: 0;
+  position: relative;
+  z-index: 2;
+}
+
+/* Individual Tab */
+.tabs .tabs-list button {
+  all: unset;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  border-bottom: 2.5px solid transparent;
+  color: #fff;
+  padding: 12px 0 4px 0; /* tighter to underline */
+  font-family: 'Syncopate', 'Syncopate Fallback', 'Arial', sans-serif;
+  font-size: 1.17rem;
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+  font-weight: 400;
+  min-width: 108px;
+  box-sizing: border-box;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+/* Active Tab */
+.tabs .tabs-list button[aria-selected="true"] {
+  border-bottom: 4px solid #fff;
+  color: #fff;
+  background: transparent;
+  font-weight: 600;
+}
+
+/* Inactive Tab */
+.tabs .tabs-list button[aria-selected="false"] {
+  border-bottom: 2px solid #222;
+  color: #fff;
+  background: transparent;
+  font-weight: 400;
+}
+
+.tabs .tabs-list button p {
+  margin: 0;
+  padding: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* Tabs Panel */
+.tabs .tabs-panel {
+  border: none;
+  background: transparent;
+  margin: 0 auto;
+  padding: 0;
+  width: 100%;
+  max-width: 100vw;
+  display: block;
+  box-sizing: border-box;
+}
+
+.tabs .tabs-panel[aria-hidden="true"] {
+  display: none;
+}
+
+/* Content Align/Spacing */
+.tabs .tabs-panel > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  padding: 0;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1120px;
+  box-sizing: border-box;
+}
+
+/* Heading: less top margin for compactness, match tighter vertical rhythm */
+.tabs .tabs-panel > div > h3 {
+  color: #fff;
+  text-align: center;
+  font-family: 'Syncopate', 'Syncopate Fallback', 'Arial', sans-serif;
+  font-size: 2.6rem;
+  line-height: 1.11;
+  letter-spacing: 0.13em;
+  font-weight: 400;
+  text-transform: uppercase;
+  margin: 22px 0 38px 0;
+  padding: 0;
+}
+
+/* Image */
+.tabs .tabs-panel > div > p {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.tabs .tabs-panel picture,
+.tabs .tabs-panel img {
+  display: block;
+  width: 100%;
+  max-width: 900px;
+  border-radius: 24px;
+  background: transparent;
+  margin: 0 auto;
+  height: auto;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .tabs .tabs-list {
+    max-width: 98vw;
+    gap: 28px;
+  }
+  .tabs .tabs-panel > div {
+    max-width: 98vw;
+  }
+  .tabs .tabs-panel picture,
+  .tabs .tabs-panel img {
+    max-width: 98vw;
+    border-radius: 16px;
+  }
+}
+
+@media (max-width: 900px) {
+  .tabs .tabs-list {
+    gap: 18px;
+    font-size: 1rem;
+  }
+  .tabs .tabs-panel > div > h3 {
+    font-size: 2rem;
+    margin-top: 18px;
+    margin-bottom: 18px;
+  }
+}
+
+@media (max-width: 600px) {
+  .tabs {
+    padding-bottom: 18px;
+  }
+  .tabs .tabs-list {
+    gap: 8px;
+    font-size: 0.93rem;
+  }
+  .tabs .tabs-panel > div > h3 {
+    font-size: 1.08rem;
+    margin: 10px 0 12px 0;
+  }
+  .tabs .tabs-panel picture,
+  .tabs .tabs-panel img {
+    max-width: 100vw;
+    border-radius: 10px;
+  }
+}
+
+/* Remove unwanted default button style from base CSS */
+.tabs .tabs-list button,
+.tabs .tabs-list button:focus,
+.tabs .tabs-list button:active {
+  box-shadow: none;
+  outline: none;
+  border-radius: 0;
+}
